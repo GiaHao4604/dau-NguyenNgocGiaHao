@@ -1,0 +1,11 @@
+class Solution(object):
+    def twoSum(self, nums, target):
+        seen = {}                      # lưu giá trị -> index
+
+        for i in range(len(nums)):     #duyệt mảng
+            need = target - nums[i]
+
+            if need in seen:            #kiểm tra giá trị đã gặp chưa
+                return [seen[need], i]
+
+            seen[nums[i]] = i           #Ghi lại số hiện tại
