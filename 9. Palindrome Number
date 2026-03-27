@@ -1,0 +1,18 @@
+class Solution(object):
+    def isPalindrome(self, x):
+        # số âm thì sai (false)
+        if x < 0:
+            return False
+        original = x      # lưu lại số ban đầu
+        daochuoi = 0  # số đảo
+
+        while x > 0:
+            number = x % 10              # lấy số cuối
+            daochuoi = daochuoi * 10 + number   # 0*10+ số cuối
+            x //= 10                   # bỏ số cuối
+
+        return original == daochuoi
+
+        #//10 để tránh vòng lập vô hạn vd # 123 3
+                                          # 12  2
+                                          # 1   1
