@@ -1,0 +1,14 @@
+class Solution(object):
+    def longestCommonPrefix(self, strs):
+        # vòng lập for duyệt mảng nếu rỗng trả về ""
+        if not strs:
+            return ""
+
+        prefix = strs[0] 
+
+        for i in range(len(prefix)):  # duyệt từng kí tự ~~ độ dài
+            for s in strs[1:]: # so sánh từng chuỗi
+                if i >= len(s) or s[i] != prefix[i]:
+                    return prefix[:i]
+
+        return prefix
