@@ -1,0 +1,20 @@
+class Solution(object):
+    def mergeTwoLists(self, list1, list2):
+        node = ListNode(0)
+        cur = node
+
+        while list1 and list2:
+            if list1.val <= list2.val:
+                cur.next = list1     # nối list 1 vô list mới
+                list1 = list1.next   # node di chuyển sang số mới
+            else:
+                cur.next = list2
+                list2 = list2.next
+            cur = cur.next
+        # nối phần còn lại
+        if list1:
+            cur.next = list1
+        else:
+            cur.next = list2
+
+        return node.next
