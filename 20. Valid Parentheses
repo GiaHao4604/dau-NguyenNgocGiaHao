@@ -1,0 +1,11 @@
+class Solution(object):
+    def isValid(self, s):
+        stack = []   
+        match = {')': '(', ']': '[', '}': '{'}
+        for ch in s:
+            if ch in match.values():  # ngoặc mở
+                stack.append(ch)
+            else:  # ngoặc đóng
+                if not stack or stack.pop() != match[ch]:
+                    return False
+        return len(stack) == 0
