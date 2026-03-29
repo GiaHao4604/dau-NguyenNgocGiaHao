@@ -1,0 +1,13 @@
+class Solution(object):
+    def removeDuplicates(self, nums):
+        if not nums:                              # mảng rỗng thì trả về 0 
+            return 0
+
+        write = 1                                # giữ phần tử đầu tiên bắt đầu là 1
+        # bắt đầu từ 1 vì 0 đã giữ ở rỗng
+        for i in range(1, len(nums)):
+            if nums[i] != nums[write - 1]:       # duyệt số ko trùng, -1 là dừng giữ lại rồi duyệt số tiếp theo số tiếp 
+                nums[write] = nums[i]
+                write += 1
+
+        return write
