@@ -1,0 +1,5 @@
+# Write your MySQL query statement below
+# xóa email trùng lấy id nhỏ nhất
+DELETE b1
+FROM Person b1 JOIN Person b2    #b1 dòng xet || b2 dòng so sánh
+ON b1.email = b2.email AND b1.id > b2.id;
