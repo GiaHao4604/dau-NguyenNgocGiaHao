@@ -1,0 +1,19 @@
+# Definition for singly-linked list.
+#Xóa tất cả các node có giá trị bằng val khỏi linked list
+class Solution:
+    def removeElements(self, head, val):
+        # Tạo node giả (dummy)
+        dummy = ListNode(0)
+        dummy.next = head
+
+        current = dummy
+
+        while current.next:
+            if current.next.val == val:
+                # Xóa node
+                current.next = current.next.next
+            else:
+                # Đi tiếp
+                current = current.next
+
+        return dummy.next
