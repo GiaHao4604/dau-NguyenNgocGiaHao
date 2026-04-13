@@ -1,0 +1,16 @@
+# Definition for a binary tree node.
+# đảo ngược cây nhị phân (invert binary tree)
+# dùng đệ quy
+class Solution:
+    def invertTree(self, root):
+        if not root:
+            return None
+
+        # Đổi trái và phải
+        root.left, root.right = root.right, root.left
+
+        # Đệ quy xuống 2 nhánh
+        self.invertTree(root.left)
+        self.invertTree(root.right)
+
+        return root
