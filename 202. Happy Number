@@ -1,0 +1,14 @@
+#bình phương rồi cộng
+class Solution(object):
+    def isHappy(self, n):
+        seen = set() # set cấu trúc dữ liệu kiểm tra ko trùng với nhanh
+        while n != 1:
+            if n in seen:     # kiểm tra lập, số từng xuất hiện trả về false
+                return False  
+            seen.add(n)       # lưu số đã đi qua
+            tong = 0  # reset mỗi vòng
+            for d in str(n):
+                so = int(d)
+                tong += so * so
+            n = tong  # cập nhật n mới
+        return True
